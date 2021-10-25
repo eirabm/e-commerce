@@ -1,0 +1,72 @@
+{
+  "root": "apps/e-commerce",
+  "sourceRoot": "apps/e-commerce/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/e-commerce",
+        "index": "apps/e-commerce/src/index.html",
+        "baseHref": "/",
+        "main": "apps/e-commerce/src/main.tsx",
+        "polyfills": "apps/e-commerce/src/polyfills.ts",
+        "tsConfig": "apps/e-commerce/tsconfig.app.json",
+        "assets": [
+          "apps/e-commerce/src/favicon.ico",
+          "apps/e-commerce/src/assets"
+        ],
+        "styles": ["apps/e-commerce/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/e-commerce/src/environments/environment.ts",
+              "with": "apps/e-commerce/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "e-commerce:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "e-commerce:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/e-commerce/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/e-commerce"],
+      "options": {
+        "jestConfig": "apps/e-commerce/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
