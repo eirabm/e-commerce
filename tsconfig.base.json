@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@ecm/layout": ["libs/layouts/src/index.ts"],
+      "@ecm/store": ["libs/store/src/index.ts"],
+      "@ecm/ui": ["libs/ui/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

@@ -2,6 +2,9 @@
   "version": 2,
   "projects": {
     "e-commerce": "apps/e-commerce",
-    "e-commerce-e2e": "apps/e-commerce-e2e"
+    "e-commerce-e2e": "apps/e-commerce-e2e",
+    "layouts": "libs/layouts",
+    "store": "libs/store",
+    "ui": "libs/ui"
   }
 }
