@@ -1,14 +1,19 @@
 import styles from './app.module.scss';
 import { AllProducts, BackgroundLayer } from '@ecm/layout';
-import { Route, Link } from 'react-router-dom';
+import { Route } from '@ecm/layout';
+import { Switch } from 'react-router';
 
 export function App() {
   return (
     <div className={styles.app}>
-      <BackgroundLayer />
-      <div className={styles.actualPage}>
-        <AllProducts />
-      </div>
+      <Switch>
+        <Route
+          path="/"
+          exact
+          component={AllProducts}
+          layout={BackgroundLayer}
+        />
+      </Switch>
     </div>
   );
 }

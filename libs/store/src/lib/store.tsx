@@ -1,14 +1,14 @@
-import './store.module.scss';
+import { configureStore } from '@reduxjs/toolkit';
+import pokeApi from './pokeApi';
+import shoppingCart from './shopping-cart.slice';
 
-/* eslint-disable-next-line */
-export interface StoreProps {}
+export const store = configureStore({
+  reducer: {
+    pokeApi,
+    shoppingCart,
+  },
+});
 
-export function Store(props: StoreProps) {
-  return (
-    <div>
-      <h1>Welcome to Store!</h1>
-    </div>
-  );
-}
-
-export default Store;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+export default store;

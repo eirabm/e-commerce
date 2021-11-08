@@ -1,4 +1,8 @@
 .sideBar {
-  background-color: ivory;
+  min-height: 800px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255);
+  padding: 15px;
   grid-column: 1/2;
+  grid-auto-rows: fit-content(100px);
 }

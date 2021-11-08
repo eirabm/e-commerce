@@ -1,7 +1,10 @@
 .background {
   display: grid;
-  grid-template-rows: 40px 200px 550px 200px 200px;
+  grid-template-columns: repeat(12, [col-start] 1fr);
   .disclaimer {
-    background-color: #ffe3f2;
+    padding: 20px;
+    height: 120px;
+    background-color: #c997c6;
+    grid-column: 1/13;
   }
 }

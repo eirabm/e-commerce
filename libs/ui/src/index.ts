@@ -1,3 +1,4 @@
+export * from './lib/side-bar-shopping-cart/side-bar-shopping-cart';
 export * from './lib/featured-products/featured-products';
 export * from './lib/newsletter/newsletter';
 export * from './lib/footer/footer';

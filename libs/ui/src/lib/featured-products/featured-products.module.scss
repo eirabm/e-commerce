@@ -1,4 +1,41 @@
 .featuredProducts {
-  background-color: lavender;
   grid-column: 1/5;
+
+  display: grid;
+  grid-template-columns: repeat(5, [col-start] 1fr);
+
+  .featuredOne {
+    display: flex;
+    padding: 10px;
+    background-color: #ffe3f2;
+    grid-column: 1/4;
+    button {
+      background-color: #ffe3f2;
+      border-radius: 8px;
+      padding: 5px;
+    }
+  }
+
+  .featuredTwo {
+    display: flex;
+    padding: 10px;
+    background-color: #f1cae9;
+    grid-column: 4/6;
+    button {
+      background-color: #f1cae9;
+      border-radius: 8px;
+      padding: 5px;
+    }
+  }
+
+  .featuredInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  img {
+    height: 250px;
+  }
 }

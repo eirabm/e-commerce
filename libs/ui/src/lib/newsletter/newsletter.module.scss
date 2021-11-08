@@ -1,0 +1,23 @@
+.newsletter {
+  height: 220px;
+  padding-top: 50px;
+  background-image: url('https://thumbs.dreamstime.com/b/modelo-incons%C3%BAtil-del-vector-geom%C3%A9trico-simple-extracto-con-la-l%C3%ADnea-blanca-textura-en-fondo-gris-moderno-claro-136680831.jpg');
+  background-repeat: repeat;
+  background-size: 150px;
+  grid-column: 1/13;
+  opacity: 0.4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    margin: 10px;
+  }
+
+  input {
+    margin: 10px;
+    border-radius: 20px;
+    padding: 10px;
+  }
+}

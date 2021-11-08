@@ -1,6 +1,33 @@
 .container {
-  width: 100%;
+  z-index: 2;
+  min-height: 800px;
   display: grid;
+  margin-top: -40px;
+  margin-bottom: -40px;
+  grid-column: 2/12;
   grid-template-columns: repeat(4, [col-start] 1fr);
-  grid-template-rows: 50px 600px 20px;
+  grid-auto-rows: fit-content(100px);
+  box-shadow: 0 3px 10px rgba(100, 100, 100, 0.5);
+  background-color: rgba(0, 0, 0, 0.1);
+  grid-gap: 1px;
+
+  h3 {
+    grid-column: 1/2;
+    padding: 5px 15px 5px 15px;
+  }
+
+  .priceSort {
+    background-color: rgba(255, 255, 255);
+    grid-column: 2/3;
+  }
+
+  .otherSort {
+    background-color: rgba(255, 255, 255);
+    grid-column: 3/4;
+  }
+
+  .list {
+    background-color: rgba(255, 255, 255);
+    grid-column: 4/5;
+  }
 }
