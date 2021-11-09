@@ -9,10 +9,21 @@ export const pokeApi = createApi({
     }),
     individualPokemon: builder.query({
       query: (id: number) => `pokemon/${id}`,
+      transformResponse: (response: any) => {
+        return {
+          id: response.id,
+          name: response.name,
+          image: response.sprites.other['official-artwork']['front_default'],
+        };
+      },
     }),
   }),
 });
 
 export default pokeApi.reducer;
 
-export const { useGetGenerationQuery, useIndividualPokemonQuery } = pokeApi;
+export const {
+  useGetGenerationQuery,
+  useIndividualPokemonQuery,
+  useLazyIndividualPokemonQuery,
+} = pokeApi;

@@ -12,9 +12,12 @@
   }
 
   .pokemonCard {
+    display: flex;
+    flex-direction: column;
     background-color: rgba(255, 255, 255);
     padding: 20px;
     text-align: center;
+
     .imgContainer {
       border-radius: 50%;
       width: 120px;

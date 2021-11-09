@@ -11,18 +11,16 @@ export interface AllProductsProps {}
 
 export function AllProducts(props: AllProductsProps) {
   const [isGrid, setIsGrid] = useState(true);
-  const [age, setAge] = useState('');
+  const [sort, setSort] = useState('none');
   const [generation, setGeneration] = useState('1');
 
   const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string);
+    setSort(event.target.value as string);
   };
 
   const handleGenerationChange = (event: SelectChangeEvent) => {
     setGeneration(event.target.value as string);
   };
-
-  console.log(generation);
 
   return (
     <div className={styles.container}>
@@ -41,23 +39,18 @@ export function AllProducts(props: AllProductsProps) {
         <MenuItem value={6}>Generation 6</MenuItem>
         <MenuItem value={7}>Generation 7</MenuItem>
       </Select>
-      <Select
-        labelId="demo-simple-select-label"
-        id="demo-simple-select"
-        value={generation}
-        label="Generation"
-        onChange={handleChange}
-      >
-        <MenuItem value={10}>Ten</MenuItem>
-        <MenuItem value={20}>Twenty</MenuItem>
-        <MenuItem value={30}>Thirty</MenuItem>
+      <Select value={sort} label="Sort" onChange={handleChange}>
+        <MenuItem value={'none'}>Order by Number</MenuItem>
+        <MenuItem value={'az'}>Alphabetically A-Z</MenuItem>
+        <MenuItem value={'za'}>Alphabetically Z-A</MenuItem>
       </Select>
+
       <div className={styles.list}>
         <AppsIcon onClick={() => setIsGrid(true)} />
         <ReorderIcon onClick={() => setIsGrid(false)} />
       </div>
       <SideBar />
-      <Products isGrid={isGrid} generation={generation} />
+      <Products isGrid={isGrid} generation={generation} sort={sort} />
     </div>
   );
 }

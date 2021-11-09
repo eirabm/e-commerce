@@ -12,25 +12,34 @@ export interface ProductCardProps {
 
 export function ProductCard(props: ProductCardProps) {
   const currentPokemon = props.currentPokemon;
-  const [currentPokemonData, setCurrentPokemonData] = useState<any>(null);
-  const { data, error, isLoading } = useIndividualPokemonQuery(
-    currentPokemon.url.toString().split('/')[6]
-  );
+  const pokemonId = currentPokemon.url.toString().split('/')[6];
+  const { data, isLoading } = useIndividualPokemonQuery(pokemonId);
 
-  useEffect(() => {
-    if (data) {
-      setCurrentPokemonData(data);
-    }
-  }, [data]);
-
-  console.log(currentPokemonData);
+  if (isLoading) {
+    return (
+      <div className={styles.pokemonCard} key={pokemonId}>
+        <div className={styles.imgContainer}>
+          <img
+            src={
+              'https://upload.wikimedia.org/wikipedia/commons/5/51/Pokebola-pokeball-png-0.png'
+            }
+          />
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className={styles.pokemonCard} key={currentPokemon.num}>
+    <div className={styles.pokemonCard} key={pokemonId}>
+      <div className={styles.imgContainer}>
+        <img src={data?.image} />
+      </div>
       <div className={styles.info}>
+        <span className={styles.number}> # {pokemonId} </span>
         <h3 className={styles.name}>
-          {currentPokemon.name[0].toUpperCase() + currentPokemon.name.slice(1)}{' '}
+          {currentPokemon.name[0].toUpperCase() + currentPokemon.name.slice(1)}
         </h3>
+        <small className={styles.type}></small>
       </div>
     </div>
   );
